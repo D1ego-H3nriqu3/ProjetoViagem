@@ -25,9 +25,14 @@ do{
 
         break
         case("0"):
-
+        sairSistema()
         break
         default:
             console.log("\nDigite uma opção correspondente!")
     }
 }while(indice === true)
+
+    function sairSistema(){
+        console.log("\n...Saindo do sistema...\n")
+        indice = false
+    }
