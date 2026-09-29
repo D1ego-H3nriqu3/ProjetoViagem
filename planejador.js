@@ -13,7 +13,8 @@ do{
     let resposta = (prompt("Escolha uma opção: ")).trim()
     switch(resposta){
         case("1"):
-
+        console.log("\n=== Custo de Combustível ===\n")
+        custoCombustivel()
         break
         case("2"):
 
@@ -35,4 +36,27 @@ do{
     function sairSistema(){
         console.log("\n...Saindo do sistema...\n")
         indice = false
+    }
+
+    function custoCombustivel(){
+        let distancia = Number(prompt("Distância da viagem (km): "))
+        if(isNaN(distancia) || distancia <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            custoCombustivel()
+        }
+        let consumoCarro = Number(prompt("Consumo do carro (km por litro): "))
+        if(isNaN(consumoCarro) || consumoCarro <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            custoCombustivel()
+        }
+        let precoLitro = Number(prompt("Preço do litro (R$): "))
+        if(isNaN(precoLitro) || precoLitro <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            custoCombustivel()
+        }
+
+        let litros = distancia / consumoCarro
+        let preco = litros * precoLitro
+
+        console.log(`Custo estimado de combustível: R$ ${preco.toFixed(2)}`)
     }
