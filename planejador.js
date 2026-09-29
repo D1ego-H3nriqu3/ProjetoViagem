@@ -17,10 +17,11 @@ do{
         custoCombustivel()
         break
         case("2"):
-
+        console.log("\n=== Tempo de Viagem ===\n")
+        tempoViagem()
         break
         case("3"):
-
+        
         break
         case("4"):
 
@@ -42,21 +43,38 @@ do{
         let distancia = Number(prompt("Distância da viagem (km): "))
         if(isNaN(distancia) || distancia <= 0){
             console.log("\nDigite um valor correspondente\n")
-            custoCombustivel()
+            return custoCombustivel()
         }
         let consumoCarro = Number(prompt("Consumo do carro (km por litro): "))
         if(isNaN(consumoCarro) || consumoCarro <= 0){
             console.log("\nDigite um valor correspondente\n")
-            custoCombustivel()
+            return custoCombustivel()
         }
         let precoLitro = Number(prompt("Preço do litro (R$): "))
         if(isNaN(precoLitro) || precoLitro <= 0){
             console.log("\nDigite um valor correspondente\n")
-            custoCombustivel()
+            return custoCombustivel()
         }
 
         let litros = distancia / consumoCarro
         let preco = litros * precoLitro
 
         console.log(`Custo estimado de combustível: R$ ${preco.toFixed(2)}`)
+    }
+
+    function tempoViagem(){
+        let distancia = Number(prompt("Distância da viagem (km): "))
+        if(isNaN(distancia) || distancia <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            return tempoViagem()
+        }
+        let velocidadeM = Number(prompt("Velocidade média (km/h): "))
+        if(isNaN(velocidadeM) || velocidadeM <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            return tempoViagem()
+        }
+
+        let tempoEstimado = distancia / velocidadeM
+
+        console.log(`Tempo estimado de viagem: ${tempoEstimado.toFixed(1)} Horas`)
     }
