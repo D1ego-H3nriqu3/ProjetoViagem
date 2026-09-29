@@ -21,7 +21,8 @@ do{
         tempoViagem()
         break
         case("3"):
-        
+        console.log("\n=== Dividir Despesas ===\n")
+        dividirDespesa()
         break
         case("4"):
 
@@ -77,4 +78,21 @@ do{
         let tempoEstimado = distancia / velocidadeM
 
         console.log(`Tempo estimado de viagem: ${tempoEstimado.toFixed(1)} Horas`)
+    }
+
+    function dividirDespesa(){
+        let totalD = Number(prompt("Total de despesas (R$): "))
+        if(isNaN(totalD) || totalD <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            return dividirDespesa()
+        }
+        let numPessoas = Number(prompt("Número de pessoas: "))
+        if(isNaN(numPessoas) || numPessoas <= 0){
+            console.log("\nDigite um valor correspondente\n")
+            return dividirDespesa()
+        }
+
+        let quantia = totalD / numPessoas
+
+        console.log(`Cada pessoa paga: R$ ${quantia.toFixed(2)}`)
     }
